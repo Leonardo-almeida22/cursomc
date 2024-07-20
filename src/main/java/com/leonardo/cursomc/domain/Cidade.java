@@ -27,6 +27,7 @@ public class Cidade implements Serializable{
 	@JoinColumn(name="estado_id") // é o nome da FK no banco de dados
 	private Estado estado;
 	
+	
 	public Cidade() {}
 
 
