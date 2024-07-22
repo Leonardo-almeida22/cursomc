@@ -3,6 +3,7 @@ package com.leonardo.cursomc.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.leonardo.cursomc.domain.enums.EstadoPagamento;
 
 import jakarta.persistence.Entity;
@@ -23,6 +24,7 @@ public abstract class Pagamento implements Serializable{
 	private Integer id;
 	private Integer estado; 
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="pedido_id") // coluna da chave estrangeira
 	@MapsId // seu id vai ser igual ao id do pedido
