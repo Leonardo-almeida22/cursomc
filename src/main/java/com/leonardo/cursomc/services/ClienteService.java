@@ -1,5 +1,6 @@
 package com.leonardo.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.leonardo.cursomc.domain.DTO.ClienteDTO;
@@ -14,8 +15,12 @@ public class ClienteService {
 
 	@Autowired
 	ClienteRepository repository;
-	
-	public Cliente buscar(Integer id) {
+
+	public List<Cliente> getAll(){
+		return repository.findAll();
+	}
+
+	public Cliente buscarPorId(Integer id) {
 		Optional<Cliente> obj = repository.findById(id);
 		return obj.orElse(null);
 	}
