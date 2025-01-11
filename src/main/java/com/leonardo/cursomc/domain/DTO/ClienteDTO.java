@@ -1,5 +1,7 @@
 package com.leonardo.cursomc.domain.DTO;
 
+import com.leonardo.cursomc.domain.Cliente;
+
 public class ClienteDTO {
     private Integer id;
     private String nome;
@@ -15,6 +17,7 @@ public class ClienteDTO {
         this.cpfOuCnpj = cpfOuCnpj;
         this.tipo = tipo;
     }
+
 
     public Integer getId() {
         return id;
@@ -55,4 +58,6 @@ public class ClienteDTO {
     public void setTipo(Integer tipo) {
         this.tipo = tipo;
     }
+
+
 }

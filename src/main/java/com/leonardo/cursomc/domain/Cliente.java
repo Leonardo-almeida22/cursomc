@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import ch.qos.logback.core.net.server.Client;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.leonardo.cursomc.domain.DTO.ClienteDTO;
 import com.leonardo.cursomc.domain.enums.TipoCliente;
 
 import jakarta.persistence.CollectionTable;
@@ -54,6 +56,21 @@ public class Cliente implements Serializable{
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = tipo.getCod();
+	}
+
+	public static Cliente convertToEntity (ClienteDTO dto){
+		Cliente entity = new Cliente();
+		entity.setNome(dto.getNome());
+		entity.setEmail(dto.getEmail());
+		entity.setCpfOuCnpj(dto.getCpfOuCnpj());
+		if(dto.getTipo() ==1){
+			entity.setTipo(TipoCliente.PESSOAFISICA);
+		} else if (dto.getTipo() == 2){
+			entity.setTipo(TipoCliente.PESSOAJURIDICA);
+		}
+
+		return entity;
+
 	}
 
 
